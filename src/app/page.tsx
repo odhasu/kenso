@@ -6,12 +6,12 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { ResellerCarousel } from "@/components/ResellerCarousel";
-import { ImageGeneratorSection } from "@/components/ImageGeneratorSection";
 import { AICustomizerSection } from "@/components/AICustomizerSection";
 import { PricingSection } from "@/components/PricingSection";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { ChatBubble } from "@/components/ChatBubble";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function Home() {
   const [announcementVisible, setAnnouncementVisible] = useState(true);
@@ -21,12 +21,21 @@ export default function Home() {
       <AnnouncementBar onVisibilityChange={setAnnouncementVisible} />
       <Navbar announcementVisible={announcementVisible} />
       <HeroSection />
-      <FeaturesSection />
-      <ResellerCarousel />
-      <ImageGeneratorSection />
-      <AICustomizerSection />
-      <PricingSection />
-      <FAQSection />
+      <ScrollReveal>
+        <FeaturesSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <ResellerCarousel />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <AICustomizerSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <PricingSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <FAQSection />
+      </ScrollReveal>
       <Footer />
       <ChatBubble />
     </div>

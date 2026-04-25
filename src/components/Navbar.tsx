@@ -85,7 +85,7 @@ export function Navbar({
             </Link>
             <Link
               href="#purchase"
-              className="hidden md:flex btn-3d-dark items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-medium"
+              className="hidden md:flex btn-3d-dark items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl text-sm font-medium"
             >
               Get Started
               <ArrowRight className="w-4 h-4" />
@@ -133,7 +133,7 @@ export function Navbar({
               <Link
                 href="#purchase"
                 onClick={() => setMobileOpen(false)}
-                className="btn-3d-dark flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg text-sm font-medium"
+                className="btn-3d-dark flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl text-sm font-medium"
               >
                 Get Started
                 <ArrowRight className="w-4 h-4" />

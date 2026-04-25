@@ -78,7 +78,7 @@ export function PricingSection() {
               </div>
               {/* CTA */}
               <div className="px-8 sm:px-10 pb-8">
-                <button className="w-full font-bold text-lg px-8 py-4 rounded-lg inline-flex items-center justify-center gap-2 btn-3d-dark bg-slate-900 hover:bg-slate-800 text-white">
+                <button className="w-full font-bold text-lg px-8 py-4 rounded-xl inline-flex items-center justify-center gap-2 btn-3d-dark bg-slate-900 hover:bg-slate-800 text-white">
                   Get Started
                   <ArrowRight className="w-4 h-4 text-white/70" />
                 </button>
@@ -132,7 +132,7 @@ export function PricingSection() {
               </div>
               {/* CTA */}
               <div className="px-8 sm:px-10 pb-8">
-                <button className="w-full font-bold text-lg px-8 py-4 rounded-lg inline-flex items-center justify-center gap-2 btn-3d bg-blue-600 hover:bg-blue-500 text-white">
+                <button className="w-full font-bold text-lg px-8 py-4 rounded-xl inline-flex items-center justify-center gap-2 btn-3d bg-blue-600 hover:bg-blue-500 text-white">
                   Get Started
                   <ArrowRight className="w-4 h-4 text-white/70" />
                 </button>
