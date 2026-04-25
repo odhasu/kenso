@@ -21,19 +21,17 @@ export default function Home() {
       <AnnouncementBar onVisibilityChange={setAnnouncementVisible} />
       <Navbar announcementVisible={announcementVisible} />
       <HeroSection />
-      <ScrollReveal>
+      <ScrollReveal animation="fade-up">
         <FeaturesSection />
       </ScrollReveal>
-      <ScrollReveal delay={100}>
+      <ScrollReveal animation="fade">
         <ResellerCarousel />
       </ScrollReveal>
-      <ScrollReveal delay={100}>
+      <ScrollReveal animation="scale-up">
         <AICustomizerSection />
       </ScrollReveal>
-      <ScrollReveal>
-        <PricingSection />
-      </ScrollReveal>
-      <ScrollReveal>
+      <PricingSection />
+      <ScrollReveal animation="fade-up">
         <FAQSection />
       </ScrollReveal>
       <Footer />

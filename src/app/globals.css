@@ -74,29 +74,80 @@
   animation: 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards hero-fade-up;
 }
 
-/* Scroll reveal animation */
-@keyframes reveal {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
+/* ── Scroll reveal animations ── */
+.sr {
+  will-change: opacity, transform;
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.visible {
+/* fade-up (default) */
+.sr-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.sr-fade-up.sr-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* fade-down */
+.sr-fade-down {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+.sr-fade-down.sr-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* slide-left (comes from the right) */
+.sr-slide-left {
+  opacity: 0;
+  transform: translateX(80px);
+}
+.sr-slide-left.sr-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* slide-right (comes from the left) */
+.sr-slide-right {
+  opacity: 0;
+  transform: translateX(-80px);
+}
+.sr-slide-right.sr-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* pop (scale up from small) */
+.sr-pop {
+  opacity: 0;
+  transform: scale(0.85) translateY(30px);
+}
+.sr-pop.sr-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* scale-up (subtle scale) */
+.sr-scale-up {
+  opacity: 0;
+  transform: scale(0.92);
+}
+.sr-scale-up.sr-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* fade only */
+.sr-fade {
+  opacity: 0;
+}
+.sr-fade.sr-visible {
+  opacity: 1;
 }
 
 /* 3D Button styles */

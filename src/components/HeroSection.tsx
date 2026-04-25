@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CircleCheckBig } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 
 const featurePills = ["140+ Features", "No coding", "One time Fee"];
 
@@ -39,7 +42,8 @@ export function HeroSection() {
           <h1
             className="font-bold text-slate-900 leading-[1.1] tracking-tight"
             style={{
-              fontFamily: "var(--font-clash-grotesk), 'Clash Grotesk', sans-serif",
+              fontFamily:
+                "var(--font-clash-grotesk), 'Clash Grotesk', sans-serif",
               fontSize: "clamp(2.25rem, 8vw, 4.5rem)",
             }}
           >
@@ -89,57 +93,71 @@ export function HeroSection() {
 
           {/* Social proof section */}
           <div className="pt-12 sm:pt-16">
-            <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
-                Used by the Biggest Names in Reselling
-              </h2>
-              <p className="text-slate-500 text-base sm:text-lg">
-                Join successful resellers making 6-figures with our theme
-              </p>
-            </div>
+            <ScrollReveal animation="fade-up">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
+                  Used by the Biggest Names in Reselling
+                </h2>
+                <p className="text-slate-500 text-base sm:text-lg">
+                  Join successful resellers making 6-figures with our theme
+                </p>
+              </div>
+            </ScrollReveal>
 
-            {/* Store screenshots — middle elevated */}
+            {/* Store screenshots — phones pop up with staggered timing */}
             <div className="relative grid grid-cols-3 gap-1 sm:gap-5 md:gap-8 px-4 max-w-[500px] sm:max-w-2xl md:max-w-3xl mx-auto">
-              <div className="self-end origin-bottom">
-                <Image
-                  src="/images/stores/store-1.png"
-                  alt="Top Reseller Store"
-                  width={400}
-                  height={700}
-                  className="w-full h-auto rounded-xl shadow-2xl"
-                />
-              </div>
-              <div className="self-end origin-bottom mb-8 sm:mb-10">
-                <Image
-                  src="/images/stores/store-2.png"
-                  alt="Featured Reseller Store"
-                  width={400}
-                  height={700}
-                  className="w-full h-auto rounded-xl shadow-2xl"
-                />
-              </div>
-              <div className="self-end origin-bottom">
-                <Image
-                  src="/images/stores/store-3.png"
-                  alt="Elite Reseller Store"
-                  width={400}
-                  height={700}
-                  className="w-full h-auto rounded-xl shadow-2xl"
-                />
-              </div>
+              <ScrollReveal animation="pop" delay={100}>
+                <div className="self-end origin-bottom">
+                  <Image
+                    src="/images/stores/store-1.png"
+                    alt="Top Reseller Store"
+                    width={400}
+                    height={700}
+                    className="w-full h-auto rounded-xl shadow-2xl"
+                  />
+                </div>
+              </ScrollReveal>
+              <ScrollReveal animation="pop" delay={0}>
+                <div className="self-end origin-bottom mb-8 sm:mb-10">
+                  <Image
+                    src="/images/stores/store-2.png"
+                    alt="Featured Reseller Store"
+                    width={400}
+                    height={700}
+                    className="w-full h-auto rounded-xl shadow-2xl"
+                  />
+                </div>
+              </ScrollReveal>
+              <ScrollReveal animation="pop" delay={200}>
+                <div className="self-end origin-bottom">
+                  <Image
+                    src="/images/stores/store-3.png"
+                    alt="Elite Reseller Store"
+                    width={400}
+                    height={700}
+                    className="w-full h-auto rounded-xl shadow-2xl"
+                  />
+                </div>
+              </ScrollReveal>
             </div>
 
-            {/* Stats row */}
+            {/* Stats row — fade up with stagger */}
             <div className="mt-12 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">
-                    {stat.value}
+              {stats.map((stat, i) => (
+                <ScrollReveal
+                  key={stat.label}
+                  animation="fade-up"
+                  delay={i * 150}
+                >
+                  <div className="text-center">
+                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs sm:text-sm text-slate-500 font-medium">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-500 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

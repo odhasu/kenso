@@ -1,15 +1,29 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { cn } from "@/lib/utils";
+
+type Animation =
+  | "fade-up"
+  | "fade-down"
+  | "slide-left"
+  | "slide-right"
+  | "pop"
+  | "scale-up"
+  | "fade";
 
 export function ScrollReveal({
   children,
   delay = 0,
+  animation = "fade-up",
   className = "",
+  once = true,
 }: {
   children: ReactNode;
   delay?: number;
+  animation?: Animation;
   className?: string;
+  once?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -21,20 +35,20 @@ export function ScrollReveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            el.classList.add("visible");
+            el.classList.add("sr-visible");
           }, delay);
-          observer.unobserve(el);
+          if (once) observer.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [delay]);
+  }, [delay, once]);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={cn(`sr sr-${animation}`, className)}>
       {children}
     </div>
   );
