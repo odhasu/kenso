@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Layers,
   Store,
   TrendingUp,
   ShoppingCart,
@@ -129,13 +128,13 @@ function FeatureCard({ feature }: { feature: Feature }) {
     <div className="feature-card h-[340px] sm:h-[360px]">
       <div className="feature-card-inner">
         {/* Front face — default */}
-        <div className="feature-card-front bg-white border border-slate-200/80 shadow-md shadow-slate-200/40 overflow-hidden flex flex-col">
+        <div className="feature-card-front bg-white border border-slate-200/80 shadow-sm overflow-hidden flex flex-col">
           {/* Decorative area */}
           <div className="flex-1 flex flex-col justify-center relative bg-gradient-to-b from-slate-50 to-white">
             <DecorativeLines />
             {/* Icon centered */}
             <div className="flex justify-center mt-4 mb-2">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-600 to-violet-700 flex items-center justify-center shadow-lg shadow-violet-600/30">
+              <div className="w-11 h-11 rounded-xl bg-violet-600 flex items-center justify-center">
                 <Icon className="w-5 h-5 text-white" />
               </div>
             </div>
@@ -153,10 +152,10 @@ function FeatureCard({ feature }: { feature: Feature }) {
         </div>
 
         {/* Back face — hover detail */}
-        <div className="feature-card-back bg-white border border-slate-200/80 shadow-md shadow-slate-200/40 overflow-hidden flex flex-col p-6">
+        <div className="feature-card-back bg-white border border-slate-200/80 shadow-sm overflow-hidden flex flex-col p-6">
           {/* Icon + title */}
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-600 to-violet-700 flex items-center justify-center shadow-md shadow-violet-600/25 shrink-0">
+            <div className="w-9 h-9 rounded-lg bg-violet-600 flex items-center justify-center shrink-0">
               <Code2 className="w-4.5 h-4.5 text-white" />
             </div>
             <h3 className="text-lg font-bold text-slate-900">{feature.title}</h3>
@@ -201,33 +200,23 @@ function FeatureCard({ feature }: { feature: Feature }) {
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.4] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative w-full">
-        <div className="text-center mb-16 sm:mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 shadow-sm mb-6">
-            <Layers className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-900">
-              Built for Your Success
-            </span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
-            Everything A Reseller
-            <br />
-            Needs to Win
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
+            Everything You Need to Win
           </h2>
-          <p className="text-slate-600 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto font-medium leading-relaxed">
-            Features your store needs to outsell the competition
+          <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto">
+            140+ features built specifically for digital product resellers
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((feature, i) => (
             <ScrollReveal
               key={feature.title}
               animation="pop"
-              delay={i * 100}
+              delay={i * 80}
             >
               <FeatureCard feature={feature} />
             </ScrollReveal>

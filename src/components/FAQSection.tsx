@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -12,19 +12,9 @@ const faqs = [
       "Kenso is a premium Shopify theme designed specifically for resellers who sell digital products like vendor lists and supplier links. It's built for entrepreneurs who want a professional, high-converting online store without any coding knowledge.",
   },
   {
-    question: "What are vendor lists and supplier links?",
-    answer:
-      "Vendor lists are curated collections of wholesale suppliers and manufacturers that resellers sell to help others find profitable products to flip. Supplier links provide direct access to these wholesale sources.",
-  },
-  {
     question: "Will my store get banned on Shopify?",
     answer:
       "No. Kenso is fully licensed with Shopify and approved for selling digital products. We have zero store bans to date. The theme is built to keep your store in good standing.",
-  },
-  {
-    question: "Can I see a live store using this theme?",
-    answer:
-      "Yes! You can view demo stores and examples of successful reseller stores using Kenso in our documentation and community.",
   },
   {
     question: "What's the difference between Lite and Pro?",
@@ -56,71 +46,54 @@ const faqs = [
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  function toggle(i: number) {
-    setOpenIndex(openIndex === i ? null : i);
-  }
-
   return (
-    <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
-            Everything you need to know about our Shopify theme
+          <p className="text-slate-500 text-base sm:text-lg">
+            Everything you need to know before getting started
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {faqs.map((faq, i) => (
-            <div key={i} className="tile-3d overflow-hidden">
+            <div key={i} className="bg-white rounded-xl border border-slate-100 overflow-hidden">
               <button
-                onClick={() => toggle(i)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 group"
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 group"
               >
-                <span className="text-lg font-semibold text-slate-900 pr-8 group-hover:text-blue-600 transition-colors">
+                <span className="text-[15px] font-medium text-slate-800 group-hover:text-slate-900 transition-colors">
                   {faq.question}
                 </span>
                 <ChevronDown
                   className={cn(
-                    "w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-300",
+                    "w-4 h-4 text-slate-400 flex-shrink-0 transition-transform duration-300",
                     openIndex === i && "rotate-180"
                   )}
                 />
               </button>
               {openIndex === i && (
-                <div className="px-6 pb-5">
-                  <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                <div className="px-5 pb-4">
+                  <p className="text-sm text-slate-500 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>
           ))}
         </div>
 
-        <div className="flex justify-center mt-8">
-          <Link
-            href="/theme/faq"
-            className="inline-flex items-center gap-2 text-lg text-slate-500 hover:text-blue-600 font-medium transition-colors"
-          >
-            View all FAQs
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        <div className="mt-12 text-center p-8 tile-3d">
-          <h3 className="text-xl font-bold text-slate-900 mb-2">
-            Still have questions?
-          </h3>
-          <p className="text-slate-600 mb-6 text-base sm:text-[17px]">
-            Our team is available 7 days a week and happy to help.
+        <div className="mt-8 text-center">
+          <p className="text-sm text-slate-400">
+            Still have questions?{" "}
+            <Link
+              href="/theme/support"
+              className="text-blue-600 hover:text-blue-500 font-medium"
+            >
+              Contact support
+            </Link>
           </p>
-          <Link
-            href="/theme/support"
-            className="btn-3d inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-500"
-          >
-            Contact Support
-          </Link>
         </div>
       </div>
     </section>

@@ -34,10 +34,9 @@ export function Navbar({
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 z-50 transition-all duration-300",
-        announcementVisible ? "top-10" : "top-0",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-slate-200/60"
+          ? "bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm"
           : "bg-transparent border-b border-transparent"
       )}
     >
@@ -47,7 +46,7 @@ export function Navbar({
           <Link href="/theme" className="flex items-center gap-2 shrink-0">
             <Image
               src="/seo/favicon.webp"
-              alt="Kenso favicon"
+              alt="Kenso"
               width={28}
               height={28}
               className="h-7 w-7 rounded-lg"
@@ -67,7 +66,7 @@ export function Navbar({
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md transition-colors"
+                className="px-3 py-2 text-sm font-medium text-slate-500 hover:text-slate-900 rounded-md transition-colors"
               >
                 {link.label}
               </Link>
@@ -78,17 +77,16 @@ export function Navbar({
           <div className="flex items-center gap-3">
             <Link
               href="/theme/login"
-              className="hidden md:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
+              className="hidden md:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
             >
               <User className="w-4 h-4" />
               Login
             </Link>
             <Link
               href="#purchase"
-              className="hidden md:flex btn-3d-dark items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl text-sm font-medium"
+              className="hidden md:flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-lg text-sm font-medium transition-colors"
             >
               Get Started
-              <ArrowRight className="w-4 h-4" />
             </Link>
 
             {/* Mobile hamburger */}
@@ -133,10 +131,9 @@ export function Navbar({
               <Link
                 href="#purchase"
                 onClick={() => setMobileOpen(false)}
-                className="btn-3d-dark flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl text-sm font-medium"
+                className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
               >
                 Get Started
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

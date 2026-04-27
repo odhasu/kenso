@@ -6,7 +6,7 @@ import { ScrollReveal } from "./ScrollReveal";
 
 const liteFeatures = [
   "Full theme with 140+ features",
-  "1 store license -- transfer to a new store if banned",
+  "1 store license",
   "Product image generator",
   "Product list generator",
   "Built-in setup support",
@@ -17,7 +17,7 @@ const liteFeatures = [
 const proFeatures = [
   "Everything in Lite, plus:",
   "1-on-1 full store setup",
-  "5 store licenses -- use on 5 stores at the same time",
+  "5 store licenses",
   "Private Kenso community",
 ];
 
@@ -25,132 +25,97 @@ export function PricingSection() {
   return (
     <section
       id="purchase"
-      className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden"
+      className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-slate-50"
     >
-      {/* Skewed bg */}
-      <div className="absolute inset-0 bg-white/50 skew-y-3 transform origin-bottom-left -z-10 translate-y-20" />
-
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-6xl mx-auto">
         <ScrollReveal animation="fade-up">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-3">
               Choose Your Plan
             </h2>
-            <p className="text-slate-600 text-lg sm:text-xl font-medium">
+            <p className="text-slate-500 text-base sm:text-lg">
               One time price. Yours for life.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* LITE Card — slides in from the left */}
+        <div className="grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {/* LITE */}
           <ScrollReveal animation="slide-right" delay={100}>
-            <div className="relative group h-full">
-              <div className="relative tile-3d-solid overflow-hidden h-full flex flex-col">
-                <div className="relative bg-gradient-to-br from-slate-100 via-slate-50 to-white px-8 sm:px-10 pt-6 pb-6">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/70 mb-3">
-                    <span className="text-xs font-bold text-slate-600 tracking-wide">
-                      LITE
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-1">
-                    Kenso Lite
-                  </h3>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <div className="text-5xl sm:text-6xl font-bold text-slate-900">
-                      179
+            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden h-full flex flex-col">
+              <div className="px-8 pt-8 pb-6">
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">
+                  Lite
+                </span>
+                <div className="flex items-baseline gap-1 mt-2 mb-1">
+                  <span className="text-sm text-slate-400">$</span>
+                  <span className="text-5xl font-bold text-slate-900">179</span>
+                </div>
+                <p className="text-sm text-slate-400">one time payment</p>
+              </div>
+              <div className="px-8 py-6 flex-grow border-t border-slate-100">
+                <div className="space-y-3">
+                  {liteFeatures.map((f) => (
+                    <div className="flex items-center gap-3" key={f}>
+                      <CircleCheckBig className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                      <span className="text-sm text-slate-600">{f}</span>
                     </div>
-                  </div>
-                  <p className="text-sm text-slate-500 font-medium">one time</p>
-                  <p className="text-slate-400 text-sm mt-1">
-                    Everything you need to launch
-                  </p>
+                  ))}
                 </div>
-                <div className="px-8 sm:px-10 py-6 flex-grow">
-                  <div className="space-y-3">
-                    {liteFeatures.map((f) => (
-                      <div className="flex items-center gap-3" key={f}>
-                        <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100">
-                          <CircleCheckBig className="w-3.5 h-3.5 text-slate-500" />
-                        </div>
-                        <span className="text-slate-600 font-medium text-sm sm:text-base">
-                          {f}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="px-8 sm:px-10 pb-8">
-                  <button className="w-full font-bold text-lg px-8 py-4 rounded-xl inline-flex items-center justify-center gap-2 btn-3d-dark bg-slate-900 hover:bg-slate-800 text-white">
-                    Get Started
-                    <ArrowRight className="w-4 h-4 text-white/70" />
-                  </button>
-                </div>
+              </div>
+              <div className="px-8 pb-8">
+                <button className="w-full py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium transition-colors">
+                  Get Started
+                </button>
               </div>
             </div>
           </ScrollReveal>
 
-          {/* PRO Card — slides in from the right */}
+          {/* PRO */}
           <ScrollReveal animation="slide-left" delay={200}>
-            <div className="relative group h-full">
-              <div className="relative tile-3d-solid overflow-hidden h-full flex flex-col">
-                <div className="relative bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 px-8 sm:px-10 pt-8 pb-10">
-                  <img
-                    src="/images/pro-badge.png"
-                    alt="Pro badge"
-                    className="absolute top-6 sm:top-12 right-8 w-36 h-36 sm:w-44 sm:h-44 object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)]"
-                  />
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm mb-4">
-                    <span className="text-xs font-bold text-white tracking-wide">
-                      SAVE $200
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-1">
-                    Kenso Pro
-                  </h3>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <div className="text-5xl sm:text-6xl font-bold text-white">
-                      379
+            <div className="bg-white rounded-2xl border border-blue-200 overflow-hidden h-full flex flex-col ring-1 ring-blue-100">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 px-8 pt-8 pb-6 relative">
+                <img
+                  src="/images/pro-badge.png"
+                  alt=""
+                  className="absolute top-4 right-6 w-28 h-28 object-contain opacity-90"
+                />
+                <span className="inline-flex px-2.5 py-0.5 rounded-full bg-white/20 text-xs font-bold text-white tracking-wide">
+                  MOST POPULAR
+                </span>
+                <div className="flex items-baseline gap-1 mt-3 mb-1">
+                  <span className="text-sm text-white/60">$</span>
+                  <span className="text-5xl font-bold text-white">379</span>
+                </div>
+                <p className="text-sm text-white/60">one time payment</p>
+              </div>
+              <div className="px-8 py-6 flex-grow">
+                <div className="space-y-3">
+                  {proFeatures.map((f) => (
+                    <div className="flex items-center gap-3" key={f}>
+                      <CircleCheckBig className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                      <span className="text-sm font-medium text-slate-700">{f}</span>
                     </div>
-                  </div>
-                  <p className="text-sm text-white/80 font-medium">one time</p>
-                  <p className="text-white/70 text-sm mt-2">
-                    Scale without limits
-                  </p>
+                  ))}
                 </div>
-                <div className="px-8 sm:px-10 py-8 flex-grow">
-                  <div className="space-y-4">
-                    {proFeatures.map((f) => (
-                      <div className="flex items-center gap-3" key={f}>
-                        <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 bg-blue-100">
-                          <CircleCheckBig className="w-3.5 h-3.5 text-blue-600" />
-                        </div>
-                        <span className="text-slate-900 font-semibold text-sm sm:text-base">
-                          {f}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="px-8 sm:px-10 pb-8">
-                  <button className="w-full font-bold text-lg px-8 py-4 rounded-xl inline-flex items-center justify-center gap-2 btn-3d bg-blue-600 hover:bg-blue-500 text-white">
-                    Get Started
-                    <ArrowRight className="w-4 h-4 text-white/70" />
-                  </button>
-                </div>
+              </div>
+              <div className="px-8 pb-8">
+                <button className="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-colors">
+                  Get Started
+                </button>
               </div>
             </div>
           </ScrollReveal>
         </div>
 
         <ScrollReveal animation="fade-up" delay={300}>
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-6">
             <Link
               href="/theme/pricing"
-              className="inline-flex items-center gap-2 text-lg text-slate-500 hover:text-blue-600 font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-blue-600 font-medium transition-colors"
             >
               Compare all features
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </ScrollReveal>
