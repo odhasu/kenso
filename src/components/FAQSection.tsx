@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -84,16 +84,29 @@ export function FAQSection() {
           ))}
         </div>
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-slate-400">
-            Still have questions?{" "}
-            <Link
-              href="/theme/support"
-              className="text-blue-600 hover:text-blue-500 font-medium"
-            >
-              Contact support
-            </Link>
+        <div className="flex justify-center mt-8">
+          <Link
+            href="/theme/faq"
+            className="inline-flex items-center gap-2 text-lg text-slate-500 hover:text-blue-600 font-medium transition-colors"
+          >
+            View all FAQs
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="mt-12 text-center tile-3d p-10">
+          <h3 className="text-xl font-bold text-slate-900 mb-2">
+            Still have questions?
+          </h3>
+          <p className="text-slate-600 mb-6">
+            Our team is available 7 days a week and happy to help.
           </p>
+          <Link
+            href="/theme/support"
+            className="btn-3d inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-500"
+          >
+            Contact Support
+          </Link>
         </div>
       </div>
     </section>
