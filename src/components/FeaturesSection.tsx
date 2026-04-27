@@ -1,206 +1,101 @@
 "use client";
 
 import {
-  Store,
-  TrendingUp,
-  ShoppingCart,
-  ShieldCheck,
-  Wand2,
-  Shield,
   Zap,
-  ArrowRight,
-  Copy,
-  Code2,
+  MessageSquare,
+  Bell,
+  Clock,
+  Smartphone,
+  Settings,
+  Gauge,
+  ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
-interface FeatureBullet {
-  icon: LucideIcon;
-  label: string;
-}
-
 interface Feature {
   title: string;
-  subtitle: string;
-  icon: LucideIcon;
   description: string;
-  bullets: FeatureBullet[];
+  icon: LucideIcon;
 }
 
 const features: Feature[] = [
   {
-    title: "Sell While You Sleep",
-    subtitle: "Automated selling around the clock",
-    icon: Store,
+    title: "Conversion-Optimized",
     description:
-      "AI chatbot answers customer questions 24/7. Handles objections and closes deals automatically while you focus on what matters.",
-    bullets: [
-      { icon: Copy, label: "AI Chatbot Included" },
-      { icon: Code2, label: "24/7 Automation" },
-      { icon: Wand2, label: "Handles Objections" },
-      { icon: Zap, label: "Closes Deals for You" },
-    ],
+      "Every element designed to build trust and drive sales with proven conversion patterns.",
+    icon: Zap,
   },
   {
-    title: "Convert More Visitors",
-    subtitle: "Turn browsers into buyers",
-    icon: TrendingUp,
+    title: "Fake Chat Assistant",
     description:
-      "Built-in urgency tools, social proof, and checkout optimization designed to maximize your conversion rate from day one.",
-    bullets: [
-      { icon: Copy, label: "Urgency Timers" },
-      { icon: Code2, label: "Social Proof Widgets" },
-      { icon: Wand2, label: "Checkout Optimizer" },
-      { icon: Zap, label: "Scarcity Alerts" },
-    ],
+      "Simulated chat widget that guides visitors to your products and builds credibility.",
+    icon: MessageSquare,
   },
   {
-    title: "Boost Your AOV",
-    subtitle: "Make every order count more",
-    icon: ShoppingCart,
+    title: "Social Proof Popups",
     description:
-      "Bundle builder with automatic discounts. Customers spend more when they can build custom deals and save.",
-    bullets: [
-      { icon: Copy, label: "Bundle Builder" },
-      { icon: Code2, label: "Auto Discounts" },
-      { icon: Wand2, label: "Upsell Prompts" },
-      { icon: Zap, label: "Cart Optimization" },
-    ],
+      '"John just purchased..." notifications that create urgency and FOMO.',
+    icon: Bell,
   },
   {
-    title: "Build Trust Fast",
-    subtitle: "Look like a premium brand",
+    title: "Urgency Elements",
+    description:
+      "Countdown timers, stock counters, and announcement bars to drive action.",
+    icon: Clock,
+  },
+  {
+    title: "Mobile-First Design",
+    description:
+      "Perfect on every device with responsive layouts optimized for mobile shoppers.",
+    icon: Smartphone,
+  },
+  {
+    title: "Easy Customization",
+    description:
+      "No coding required. Full Shopify editor support for complete control.",
+    icon: Settings,
+  },
+  {
+    title: "Lightning Fast",
+    description:
+      "Optimized for speed and Core Web Vitals to maximize SEO and conversions.",
+    icon: Gauge,
+  },
+  {
+    title: "Trust Badges",
+    description:
+      "Built-in trust-building sections with payment badges and guarantees.",
     icon: ShieldCheck,
-    description:
-      "Photo reviews, live viewer counts, recent purchase notifications, and trust badges that make first-time buyers feel safe.",
-    bullets: [
-      { icon: Copy, label: "Photo Reviews" },
-      { icon: Code2, label: "Live Viewer Count" },
-      { icon: Wand2, label: "Purchase Popups" },
-      { icon: Zap, label: "Trust Badges" },
-    ],
-  },
-  {
-    title: "No Coding Required",
-    subtitle: "Set up in under 15 minutes",
-    icon: Wand2,
-    description:
-      "Customize everything through Shopify's built-in editor. No developers needed — just drag, drop, and publish.",
-    bullets: [
-      { icon: Copy, label: "Visual Editor" },
-      { icon: Code2, label: "Drag & Drop" },
-      { icon: Wand2, label: "One-Click Setup" },
-      { icon: Zap, label: "Step-by-Step Guides" },
-    ],
-  },
-  {
-    title: "Stay Compliant",
-    subtitle: "Built to keep your store safe",
-    icon: Shield,
-    description:
-      "Officially licensed for digital products. Built specifically so you don't get banned — even when competitors do.",
-    bullets: [
-      { icon: Copy, label: "TOS Compliant" },
-      { icon: Code2, label: "Ban-Proof Design" },
-      { icon: Wand2, label: "Licensed Assets" },
-      { icon: Zap, label: "Regular Audits" },
-    ],
   },
 ];
-
-function DecorativeLines() {
-  return (
-    <div className="flex flex-col items-center gap-2 px-6 pt-6">
-      <div className="h-2.5 w-[85%] rounded-full bg-violet-200/60" />
-      <div className="h-2.5 w-[70%] rounded-full bg-violet-200/50" />
-      <div className="h-2.5 w-[90%] rounded-full bg-violet-200/40" />
-      <div className="h-2.5 w-[60%] rounded-full bg-violet-100/60" />
-      <div className="h-2.5 w-[75%] rounded-full bg-violet-100/40" />
-    </div>
-  );
-}
 
 function FeatureCard({ feature }: { feature: Feature }) {
   const Icon = feature.icon;
 
   return (
-    <div className="feature-card h-[340px] sm:h-[360px]">
-      <div className="feature-card-inner">
-        {/* Front face — default */}
-        <div className="feature-card-front bg-white border border-slate-200/80 shadow-sm overflow-hidden flex flex-col">
-          {/* Decorative area */}
-          <div className="flex-1 flex flex-col justify-center relative bg-gradient-to-b from-slate-50 to-white">
-            <DecorativeLines />
-            {/* Icon centered */}
-            <div className="flex justify-center mt-4 mb-2">
-              <div className="w-11 h-11 rounded-xl bg-violet-600 flex items-center justify-center">
-                <Icon className="w-5 h-5 text-white" />
-              </div>
-            </div>
-          </div>
-          {/* Bottom: title + subtitle */}
-          <div className="px-5 pb-5 pt-3 flex items-end justify-between gap-2">
-            <div>
-              <h3 className="text-lg font-bold text-slate-900 leading-tight">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-slate-500 mt-0.5">{feature.subtitle}</p>
-            </div>
-            <Zap className="w-5 h-5 text-violet-600 shrink-0" />
-          </div>
-        </div>
-
-        {/* Back face — hover detail */}
-        <div className="feature-card-back bg-white border border-slate-200/80 shadow-sm overflow-hidden flex flex-col p-6">
-          {/* Icon + title */}
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-lg bg-violet-600 flex items-center justify-center shrink-0">
-              <Code2 className="w-4.5 h-4.5 text-white" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900">{feature.title}</h3>
-          </div>
-
-          {/* Description */}
-          <p className="text-sm text-slate-500 leading-relaxed mb-5">
-            {feature.description}
-          </p>
-
-          {/* Bullet items */}
-          <div className="space-y-3 flex-1">
-            {feature.bullets.map((bullet) => {
-              const BulletIcon = bullet.icon;
-              return (
-                <div key={bullet.label} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-violet-50 flex items-center justify-center shrink-0">
-                    <BulletIcon className="w-4 h-4 text-violet-600" />
-                  </div>
-                  <span className="text-sm font-semibold text-slate-800">
-                    {bullet.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Explore link */}
-          <div className="border-t border-slate-100 pt-4 mt-4">
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-semibold text-slate-900">
-                Explore feature
-              </span>
-              <ArrowRight className="w-4 h-4 text-violet-600" />
-            </div>
-          </div>
-        </div>
+    <div className="group relative rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-blue-300 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-600/20">
+      {/* Icon */}
+      <div className="mb-5 w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center transition-colors duration-300 group-hover:bg-white/20 group-hover:border-white/30">
+        <Icon className="w-5 h-5 text-blue-600 transition-colors duration-300 group-hover:text-white" />
       </div>
+
+      {/* Title */}
+      <h3 className="text-lg font-bold text-slate-900 mb-2 transition-colors duration-300 group-hover:text-white">
+        {feature.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-sm text-slate-500 leading-relaxed transition-colors duration-300 group-hover:text-blue-100">
+        {feature.description}
+      </p>
     </div>
   );
 }
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-slate-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
@@ -211,12 +106,12 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((feature, i) => (
             <ScrollReveal
               key={feature.title}
-              animation="pop"
-              delay={i * 80}
+              animation="fade-up"
+              delay={i * 60}
             >
               <FeatureCard feature={feature} />
             </ScrollReveal>
