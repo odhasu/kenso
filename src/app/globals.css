@@ -134,23 +134,62 @@
   opacity: 1;
 }
 
-/* Button styles */
+/* 3D Button styles */
 .btn-3d {
-  transition: all 0.2s;
-  box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 16px 36px -10px rgba(59, 130, 246, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+.btn-3d::after {
+  content: "";
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  position: absolute;
+  inset: 0;
 }
 .btn-3d:hover {
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
-  transform: translateY(-1px);
+  box-shadow:
+    0 20px 44px -10px rgba(59, 130, 246, 0.7),
+    inset 0 2px 6px rgba(255, 255, 255, 0.6),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* 3D Button dark variant */
 .btn-3d-dark {
-  transition: all 0.2s;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 16px 36px -10px rgba(15, 23, 42, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.12),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+.btn-3d-dark::after {
+  content: "";
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  position: absolute;
+  inset: 0;
 }
 .btn-3d-dark:hover {
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
-  transform: translateY(-1px);
+  box-shadow:
+    0 20px 44px -10px rgba(15, 23, 42, 0.6),
+    inset 0 2px 6px rgba(255, 255, 255, 0.18),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.35);
 }
 
 /* Tile styles */
@@ -158,25 +197,39 @@
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 16px;
+  border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.04);
 }
 .tile-3d:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
 .tile-3d-solid {
   background: #fff;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(190, 190, 195, 0.4);
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.5),
+    inset 0 1px rgba(255, 255, 255, 0.7),
+    inset 0 -1px rgba(0, 0, 0, 0.04),
+    0 20px 60px rgba(0, 0, 0, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.04);
 }
 .tile-3d-solid:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.55),
+    inset 0 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px rgba(0, 0, 0, 0.05),
+    0 28px 80px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Scroll container for reseller carousel */
